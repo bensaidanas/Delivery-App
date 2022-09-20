@@ -1,0 +1,92 @@
+@use "../globals/" as *;
+@use "../utils/" as u;
+
+header {
+    width: 100%;
+    background-color: var(--body-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $z-fixed;
+    transition: .5s;
+
+    .button {
+        display: none;
+
+        @include u.breakpoint(large) {
+            display: inline-block;
+        }
+    }
+}
+
+nav {
+    height: $header-height;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include u.breakpoint(medium) {
+        height: calc($header-height + 1.5rem);
+    }
+
+    .menu {
+
+        @include u.breakpoint-down(small) {
+            background-color: var(--container-color);
+            box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+            position: fixed;
+            top: -100%;
+            width: 90%;
+            padding: 2.5rem 0;
+            margin: 0 auto;
+            border-radius: 2rem;
+            z-index: $z-fixed;
+        }
+
+        &.show-menu {
+            top: 3rem;
+        }
+
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1.5rem;
+
+            @include u.breakpoint(medium) {
+                flex-direction: row;
+                column-gap: 2.5rem;
+            }
+
+
+            .theme-switch {
+                position: absolute;
+                right: 1.5rem;
+                top: 2.2rem;
+                color: var(--title-color);
+                font-size: 1.8rem;
+                cursor: pointer;
+
+                @include u.breakpoint(medium) {
+                    position: initial;
+                }
+            }
+        }
+    }
+
+    .link,
+    .logo {
+        color: var(--title-color);
+        font-weight: $semi-bold;
+    }
+
+    .toggle {
+        @extend .logo;
+        font-size: 1.3rem;
+        cursor: pointer;
+        @include u.breakpoint(medium) {
+            display: none;
+        }
+    }
+}

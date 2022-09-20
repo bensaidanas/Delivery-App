@@ -1,0 +1,45 @@
+@use "../globals" as *;
+@use "../utils";
+
+.home {
+    .container {
+        row-gap: 3rem;
+
+        @include utils.breakpoint(medium) {
+            // height: 85vh;
+            padding: 6rem 0 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+        }
+
+        svg {
+            @include utils.breakpoint(medium) {
+                order: 1;
+            }
+        }
+
+        .data {
+            text-align: center;
+
+            @include utils.breakpoint(medium) {
+                text-align: start;
+            }
+
+            h1 {
+                font: {
+                    weight: $bold;
+                    size: $biggest-font-size;
+                }
+                margin-bottom: .75rem;
+
+                @include utils.breakpoint(medium) {
+                    text-align: start;
+                }
+            }
+
+            p {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+}
