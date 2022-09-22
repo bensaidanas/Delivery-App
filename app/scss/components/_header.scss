@@ -72,6 +72,23 @@ nav {
                     position: initial;
                 }
             }
+
+            .active-link {
+                // background-color: red;
+                // border-bottom: 2px solid green;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    height: 3px;
+                    width: 90%;
+                    background-color: var(--first-color);
+                    bottom: -5px;
+                    left: 0;
+                }
+            }
+
         }
     }
 
